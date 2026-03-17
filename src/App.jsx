@@ -4,11 +4,21 @@ import './App.css'
 import gsap from 'gsap'
 
 function App() {
+
   useEffect(()=> {
-    console.log("gsap running");
-    gsap.fromTo("h1", 
-    {opacity: 0},
-    {opacity:1 , duration: 2});
+    const tl = gsap.timeline();
+
+    tl.fromTo(".title", 
+    {opacity: 0, y: 50},
+    {opacity:1 , y:0, duration: 1})
+
+    .fromTo(".subtitle",
+    {opacity:0, y: 50},
+    {opacity: 1, y: 0, duration: 1})
+
+    .fromTo(".btn",
+    {opacity: 0, scale: 0},
+    {opacity: 1, scale: 1, duration: 0.5});
   }, []);
   
 
