@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import Hero from './component/Hero'
 
 function App() {
   
 
   return (
-    <div>
-      <h1>hello</h1>
+    <div className='bg-black text-white'>
+      <Hero/>
+      
     </div>
       )
 }
