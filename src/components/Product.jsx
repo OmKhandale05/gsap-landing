@@ -3,10 +3,19 @@ import gsap from "gsap";
 
 const Product = () => {
   useEffect(() => {
-    gsap.fromTo(".box", 
-      { x: -300 }, 
-      { x: 300, duration: 2 }
-    );
+    console.log("GSAP RUNNING");
+
+    const el = document.querySelector(".box");
+    console.log("ELEMENT:", el);
+
+    gsap.to(".box", {
+        x: 500,
+        duration: 3,
+        backgroundColor: "yellow",
+        scale: 2,
+        rotation: 360
+      });
+
   }, []);
 
   return (
