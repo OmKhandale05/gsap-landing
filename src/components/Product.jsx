@@ -16,7 +16,9 @@ const Product = () => {
             stagger: 0.3,
             scrollTrigger: {
                 trigger: ".cards-container",
-                start: "top 85%",
+                start: "top 80%",
+                end: "top 30%",
+                scrub: true,
                 markers: true
             },
         });
