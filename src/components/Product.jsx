@@ -1,26 +1,31 @@
 import { useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Product = () => {
+
   useEffect(() => {
-    console.log("GSAP RUNNING");
+    gsap.registerPlugin(ScrollTrigger);
 
-    const el = document.querySelector(".box");
-    console.log("ELEMENT:", el);
-
-    gsap.to(".box", {
+    gsap.fromTo(".box",
+      { x: -800 },
+      {
         x: 500,
-        duration: 3,
-        backgroundColor: "yellow",
-        scale: 2,
-        rotation: 360
-      });
+        scrollTrigger: {
+          trigger: ".box",
+          start: "top 80%",
+          end: "top 20%",
+          scrub: true,
+          markers: true
+        }
+      }
+    );
 
   }, []);
 
   return (
-    <div className="h-screen flex items-center justify-center bg-black">
-      <div className="box w-20 h-20 bg-red-500"></div>
+    <div className="h-[200vh] flex items-center justify-center bg-black">
+      <div className="box w-24 h-24 bg-red-500"></div>
     </div>
   );
 };
