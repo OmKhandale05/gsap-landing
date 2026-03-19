@@ -52,24 +52,21 @@ const Product = () => {
       }
     );
 
-    gsap.to(".parallax-text", {
-      y: -300,
-      scrollTrigger: {
-        trigger: ".parallax-section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-        markers: true
-      }
-    });
-
   });
 
   return () => ctx.revert();
 }, []);
 
-
-
+gsap.to(".parallax-text", {
+  y: -300,
+  scrollTrigger: {
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+    markers: true
+  }
+});
   return (
     <div>
       <div
@@ -116,7 +113,7 @@ const Product = () => {
       <div className="parallax-section h-[200vh] bg-black relative overflow-hidden">
 
   <h1 className="parallax-text text-6xl font-bold text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-    PARALLAX EFFECT 🚀
+    PARALLAX EFFECT
   </h1>
 
 </div>
