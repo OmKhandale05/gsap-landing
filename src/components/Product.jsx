@@ -26,11 +26,12 @@ const Product = () => {
   
     const ctx = gsap.context(() => {
   
-      gsap.fromTo(textRef.current,
+      gsap.fromTo(".char",
         { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
+          stagger: 0.05, // 🔥 key for effect
           scrollTrigger: {
             trigger: textRef.current,
             start: "top 80%",
@@ -63,9 +64,13 @@ const Product = () => {
       <div className="h-[150vh] flex items-center justify-center bg-black">
         <h1
           ref={textRef}
-          className="text-6xl font-bold text-white overflow-hidden"
+          className="text-6xl font-bold text-white flex flex-wrap overflow-hidden"
         >
-          AMAZING ANIMATION
+          {"AMAZING ANIMATION".split("").map((char, index) => (
+            <span key={index} className="char inline-block">
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
         </h1>
       </div>
 
