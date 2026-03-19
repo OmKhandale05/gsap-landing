@@ -27,25 +27,35 @@ const Product = () => {
     const ctx = gsap.context(() => {
   
       gsap.fromTo(".char",
-        { y: 100, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.05, // 🔥 key for effect
-          scrollTrigger: {
-            trigger: textRef.current,
-            start: "top 80%",
-            end: "top 40%",
-            scrub: true,
-            markers: true
-          }
+      {
+        y: 120,
+        opacity: 0,
+        rotateX: 90,
+        scale: 0.8,
+        filter: "blur(10px)" //
+      },
+      {
+        y: 0,
+        opacity: 1,
+        rotateX: 0,
+        scale: 1,
+        filter: "blur(0px)", 
+        stagger: 0.05,
+        ease: "power3.out", 
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+          markers: true
         }
-      );
-  
-    });
-  
-    return () => ctx.revert();
-  }, []);
+      }
+    );
+
+  });
+
+  return () => ctx.revert();
+}, []);
 
   return (
     <div>
